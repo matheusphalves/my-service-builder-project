@@ -1,0 +1,8 @@
+Bundle-Name: Liferay H7G5 API
+Bundle-SymbolicName: com.liferay.h7g5.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.liferay.h7g5.exception,\
+	com.liferay.h7g5.model,\
+	com.liferay.h7g5.service,\
+	com.liferay.h7g5.service.persistence

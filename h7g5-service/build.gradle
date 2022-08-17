@@ -1,0 +1,9 @@
+buildService {
+	apiDir = "../h7g5-api/src/main/java"
+	testDir = "../h7g5-test/src/testIntegration/java"
+}
+
+dependencies {
+	compileOnly group: "com.liferay.portal", name: "release.portal.api"
+	compileOnly project(":h7g5-api")
+}

@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.4.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_4_0.dtd">
+
+<service-builder auto-namespace-tables="true" dependency-injector="ds" package-path="com.liferay.h7g5">
+	<namespace>OHQIWTSFHL</namespace>
+	<entity local-service="true" name="H7G5Entry" remote-service="true">
+
+		<!-- PK fields -->
+
+		<column name="h7g5EntryId" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="h7g5FolderId" type="long" />
+		<column name="description" type="String" />
+		<column name="key" type="String" />
+		<column name="name" type="String" />
+
+		<!-- Order -->
+
+		<order by="desc">
+			<order-column name="createDate" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="H7G5FolderId" return-type="Collection">
+			<finder-column name="h7g5FolderId" />
+		</finder>
+		<finder name="Key" return-type="H7G5Entry">
+			<finder-column name="key" />
+		</finder>
+		<finder name="Name" return-type="Collection">
+			<finder-column name="name" />
+		</finder>
+		<finder name="H_D_N" return-type="H7G5Entry">
+			<finder-column name="h7g5FolderId" />
+			<finder-column name="description" />
+			<finder-column name="name" />
+		</finder>
+
+		<!-- References -->
+
+		<reference entity="Group" package-path="com.liferay.portal" />
+	</entity>
+	<entity local-service="true" name="H7G5Folder" remote-service="true">
+
+		<!-- PK fields -->
+
+		<column name="h7g5FolderId" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="description" type="String" />
+		<column name="name" type="String" />
+
+		<!-- Order -->
+
+		<order by="desc">
+			<order-column name="createDate" />
+		</order>
+	</entity>
+	<exceptions>
+		<exception>DuplicateH7G5EntryKey</exception>
+		<exception>H7G5FolderName</exception>
+	</exceptions>
+</service-builder>
