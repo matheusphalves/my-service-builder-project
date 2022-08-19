@@ -44,6 +44,11 @@ public class H7G5EntryLocalServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to <code>com.liferay.h7g5.service.impl.H7G5EntryLocalServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
+	public static H7G5Entry addEntry(
+		long h7g5FolderId, String description, String name) {
+
+		return getService().addEntry(h7g5FolderId, description, name);
+	}
 
 	/**
 	 * Adds the h7g5 entry to the database. Also notifies the appropriate model listeners.
@@ -207,6 +212,27 @@ public class H7G5EntryLocalServiceUtil {
 
 	public static H7G5Entry fetchH7G5Entry(long h7g5EntryId) {
 		return getService().fetchH7G5Entry(h7g5EntryId);
+	}
+
+	public static List<H7G5Entry> findByH7G5FolderId(long h7g5FolderId) {
+		return getService().findByH7G5FolderId(h7g5FolderId);
+	}
+
+	public static H7G5Entry findByH_D_N(
+			long h7g5FolderId, String description, String name)
+		throws com.liferay.h7g5.exception.NoSuchH7G5EntryException {
+
+		return getService().findByH_D_N(h7g5FolderId, description, name);
+	}
+
+	public static H7G5Entry findByKey(String key)
+		throws com.liferay.h7g5.exception.NoSuchH7G5EntryException {
+
+		return getService().findByKey(key);
+	}
+
+	public static List<H7G5Entry> findByName(String name) {
+		return getService().findByName(name);
 	}
 
 	public static com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery

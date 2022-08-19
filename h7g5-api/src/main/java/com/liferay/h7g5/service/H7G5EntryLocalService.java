@@ -14,6 +14,7 @@
 
 package com.liferay.h7g5.service;
 
+import com.liferay.h7g5.exception.NoSuchH7G5EntryException;
 import com.liferay.h7g5.model.H7G5Entry;
 import com.liferay.petra.sql.dsl.query.DSLQuery;
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
@@ -61,6 +62,8 @@ public interface H7G5EntryLocalService
 	 *
 	 * Never modify this interface directly. Add custom service methods to <code>com.liferay.h7g5.service.impl.H7G5EntryLocalServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface. Consume the h7g5 entry local service via injection or a <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link H7G5EntryLocalServiceUtil} if injection and service tracking are not available.
 	 */
+	public H7G5Entry addEntry(
+		long h7g5FolderId, String description, String name);
 
 	/**
 	 * Adds the h7g5 entry to the database. Also notifies the appropriate model listeners.
@@ -198,6 +201,16 @@ public interface H7G5EntryLocalService
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public H7G5Entry fetchH7G5Entry(long h7g5EntryId);
+
+	public List<H7G5Entry> findByH7G5FolderId(long h7g5FolderId);
+
+	public H7G5Entry findByH_D_N(
+			long h7g5FolderId, String description, String name)
+		throws NoSuchH7G5EntryException;
+
+	public H7G5Entry findByKey(String key) throws NoSuchH7G5EntryException;
+
+	public List<H7G5Entry> findByName(String name);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ActionableDynamicQuery getActionableDynamicQuery();

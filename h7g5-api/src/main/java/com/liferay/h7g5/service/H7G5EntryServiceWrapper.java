@@ -34,6 +34,47 @@ public class H7G5EntryServiceWrapper
 		_h7g5EntryService = h7g5EntryService;
 	}
 
+	@Override
+	public com.liferay.h7g5.model.H7G5Entry addEntry(
+			long h7g5FolderId, String description, String name)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _h7g5EntryService.addEntry(h7g5FolderId, description, name);
+	}
+
+	@Override
+	public java.util.List<com.liferay.h7g5.model.H7G5Entry> findByH7G5FolderId(
+			long h7g5FolderId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _h7g5EntryService.findByH7G5FolderId(h7g5FolderId);
+	}
+
+	@Override
+	public com.liferay.h7g5.model.H7G5Entry findByH_D_N(
+			long h7g5FolderId, String description, String name)
+		throws com.liferay.h7g5.exception.NoSuchH7G5EntryException,
+			   com.liferay.portal.kernel.exception.PortalException {
+
+		return _h7g5EntryService.findByH_D_N(h7g5FolderId, description, name);
+	}
+
+	@Override
+	public com.liferay.h7g5.model.H7G5Entry findBykey(String key)
+		throws com.liferay.h7g5.exception.NoSuchH7G5EntryException,
+			   com.liferay.portal.kernel.exception.PortalException {
+
+		return _h7g5EntryService.findBykey(key);
+	}
+
+	@Override
+	public java.util.List<com.liferay.h7g5.model.H7G5Entry> findByName(
+			String name)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _h7g5EntryService.findByName(name);
+	}
+
 	/**
 	 * Returns the OSGi service identifier.
 	 *

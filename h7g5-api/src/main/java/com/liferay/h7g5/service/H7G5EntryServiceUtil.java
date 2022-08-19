@@ -14,6 +14,11 @@
 
 package com.liferay.h7g5.service;
 
+import com.liferay.h7g5.model.H7G5Entry;
+import com.liferay.portal.kernel.exception.PortalException;
+
+import java.util.List;
+
 /**
  * Provides the remote service utility for H7G5Entry. This utility wraps
  * <code>com.liferay.h7g5.service.impl.H7G5EntryServiceImpl</code> and is an
@@ -33,13 +38,46 @@ public class H7G5EntryServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to <code>com.liferay.h7g5.service.impl.H7G5EntryServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
+	public static H7G5Entry addEntry(
+			long h7g5FolderId, String description, String name)
+		throws PortalException {
+
+		return getService().addEntry(h7g5FolderId, description, name);
+	}
+
+	public static List<H7G5Entry> findByH7G5FolderId(long h7g5FolderId)
+		throws PortalException {
+
+		return getService().findByH7G5FolderId(h7g5FolderId);
+	}
+
+	public static H7G5Entry findByH_D_N(
+			long h7g5FolderId, String description, String name)
+		throws com.liferay.h7g5.exception.NoSuchH7G5EntryException,
+			   PortalException {
+
+		return getService().findByH_D_N(h7g5FolderId, description, name);
+	}
+
+	public static H7G5Entry findBykey(String key)
+		throws com.liferay.h7g5.exception.NoSuchH7G5EntryException,
+			   PortalException {
+
+		return getService().findBykey(key);
+	}
+
+	public static List<H7G5Entry> findByName(String name)
+		throws PortalException {
+
+		return getService().findByName(name);
+	}
 
 	/**
 	 * Returns the OSGi service identifier.
 	 *
 	 * @return the OSGi service identifier
 	 */
-	public static java.lang.String getOSGiServiceIdentifier() {
+	public static String getOSGiServiceIdentifier() {
 		return getService().getOSGiServiceIdentifier();
 	}
 

@@ -17,6 +17,7 @@ package com.liferay.h7g5.service.base;
 import com.liferay.h7g5.model.H7G5Folder;
 import com.liferay.h7g5.service.H7G5FolderService;
 import com.liferay.h7g5.service.H7G5FolderServiceUtil;
+import com.liferay.h7g5.service.persistence.H7G5EntryFinder;
 import com.liferay.h7g5.service.persistence.H7G5EntryPersistence;
 import com.liferay.h7g5.service.persistence.H7G5FolderPersistence;
 import com.liferay.portal.aop.AopService;
@@ -133,6 +134,9 @@ public abstract class H7G5FolderServiceBaseImpl
 
 	@Reference
 	protected H7G5EntryPersistence h7g5EntryPersistence;
+
+	@Reference
+	protected H7G5EntryFinder h7g5EntryFinder;
 
 	@Reference
 	protected com.liferay.h7g5.service.H7G5FolderLocalService
